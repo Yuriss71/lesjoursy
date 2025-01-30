@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yno'sphere</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="js/carousel.js" defer></script>
+    <script src="js/header.js" defer></script>
+    <meta name="netlify" content="true">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Yno'sphere</div>
+            <div class="search-bar">
+                <input type="search" placeholder="Rechercher...">
+                <button type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="accueil" class="hero">
+            <h1>Bienvenue sur Yno'sphere</h1>
+            <p>L'actualité de dernière minute</p>
+            
+            <!-- Ajout du carrousel -->
+            <div class="carousel">
+                <button class="carousel-button prev">&lt;</button>
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="carousel-slide">
+                            <a href="articles/article1.html">
+                                <img src="images/slide1.jpg" alt="Image 1">
+                                <div class="carousel-caption">
+                                    <h3>Article Principal 1</h3>
+                                    <p>Cliquez pour en savoir plus</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="carousel-slide">
+                            <a href="articles/article2.html">
+                                <img src="images/slide2.jpg" alt="Image 2">
+                                <div class="carousel-caption">
+                                    <h3>Article Principal 2</h3>
+                                    <p>Cliquez pour en savoir plus</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="carousel-slide">
+                            <a href="articles/article3.html">
+                                <img src="images/slide3.jpg" alt="Image 3">
+                                <div class="carousel-caption">
+                                    <h3>Article Principal 3</h3>
+                                    <p>Cliquez pour en savoir plus</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button next">&gt;</button>
+                
+                <div class="carousel-nav">
+                    <button class="carousel-indicator active"></button>
+                    <button class="carousel-indicator"></button>
+                    <button class="carousel-indicator"></button>
+                </div>
+            </div>
+        </section>
+
+        <section id="apropos">
+            <h2>À propos</h2>
+            <p>Votre contenu à propos ici</p>
+        </section>
+
+        <section id="services">
+            <h2>Nos articles plus en détail 🔍</h2>
+            <div class="services-grid">
+                <a href="articles/article1.html" class="service-card">
+                    <h3>Article 1</h3>
+                    <p>Description de l'article 1</p>
+                    <span class="read-more">Lire la suite →</span>
+                </a>
+                <a href="articles/article2.html" class="service-card">
+                    <h3>Article 2</h3>
+                    <p>Description de l'article 2</p>
+                    <span class="read-more">Lire la suite →</span>
+                </a>
+                <a href="articles/article3.html" class="service-card">
+                    <h3>Article 3</h3>
+                    <p>Description de l'article 3</p>
+                    <span class="read-more">Lire la suite →</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <form>
+                <input type="text" placeholder="Nom">
+                <input type="email" placeholder="Email">
+                <textarea placeholder="Message"></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Yno'sphere. Tous droits réservés.</p>
+    </footer>
+</body>
+</html> 
