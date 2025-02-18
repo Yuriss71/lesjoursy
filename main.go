@@ -15,6 +15,7 @@ func main() {
 	http.Handle("/styles/", fs)
 	http.Handle("/images/", fs)
 	http.Handle("/js/", fs)
+	http.Handle("/articles/", fs)
 
 	// Route principale
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -22,8 +23,8 @@ func main() {
 			http.ServeFile(w, r, "index.html")
 			return
 		}
-		// Gérer les autres routes
-		http.NotFound(w, r)
+		// Servir le fichier directement
+		http.FileServer(http.Dir(".")).ServeHTTP(w, r)
 	})
 
 	// Démarrer le serveur
