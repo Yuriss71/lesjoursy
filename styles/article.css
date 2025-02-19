@@ -1,7 +1,12 @@
 .article-content {
     max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    margin: auto; 
+    padding: 2rem; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    min-height: 100vh; 
 }
 
 .article-meta {
@@ -20,16 +25,28 @@
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 2rem;
-}
+    }
 
 .article-body {
     line-height: 1.8;
 }
 
 .article-body p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
+
+/* mise en place logo */
+.petitY {
+    width: 40px; 
+    height: auto;
+    display: block; 
+    margin: 0 auto; 
+}
+
+image {
+    bottom: 50px;
+}
 /* Style spécifique pour le logo dans les articles */
 .logo a {
     color: var(--violet-clair);
@@ -42,3 +59,30 @@
         height: 300px;
     }
 } 
+
+footer{
+    padding: 30px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Giaza';
+    color: #FFFCF7;
+    background-color: #72224D;
+    justify-content: space-between;
+}
+
+footer ul li {
+    display: inline; /* Assure que les éléments restent en ligne */
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: white !important; /* Force le texte en blanc */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+footer ul li a:hover {
+    text-decoration: underline; /* Effet au survol */
+}
