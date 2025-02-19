@@ -3,7 +3,22 @@
     padding: 0;
     box-sizing: border-box;
 }
+@font-face {
+    font-family: 'Giaza';
+    src: url('fonts/Giaza.woff2') format('woff2'),
+         url('fonts/Giaza.woff') format('woff'),
+         url('fonts/Giaza.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Giaza', serif;
+}
 
+/* Appliquer Glacial Indifference au reste du texte */
+body, p, span, a, li {
+    font-family: 'Glacial Indifference', sans-serif;
+}
 /* Mise à jour des couleurs */
 :root {
     --violet-clair: #8A6BC1;
@@ -14,7 +29,6 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     background-color: var(--blanc);
     color: var(--noir);
