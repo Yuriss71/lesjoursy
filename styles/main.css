@@ -1,8 +1,11 @@
+/* Réinitialisation des marges et padding */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Importation des polices */
 @font-face {
     font-family: 'Giaza';
     src: url('fonts/Giaza.woff2') format('woff2'),
@@ -11,15 +14,16 @@
     font-weight: normal;
     font-style: normal;
 }
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Giaza', serif;
 }
 
-/* Appliquer Glacial Indifference au reste du texte */
 body, p, span, a, li {
     font-family: 'Glacial Indifference', sans-serif;
 }
-/* Mise à jour des couleurs */
+
+/* Couleurs globales */
 :root {
     --violet-clair: #8A6BC1;
     --violet-fonce: #5D4777;
@@ -27,56 +31,168 @@ body, p, span, a, li {
     --blanc: #FFFFFF;
     --gris-clair: #F5F5F7;
 }
-
-body {
-    line-height: 1.6;
-    background-color: var(--blanc);
-    color: var(--noir);
-}
-
 /* Navigation */
 nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 30px;
-    background-color: var(--noir);
-    color: var(--blanc);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
+    width: 100%;
+    font-size: 18px;
+    position: sticky;
+    top: 0;
+  }
 
 .logo {
     color: var(--violet-clair);
     font-size: 1.5rem;
-        display: flex;
-        align-items: center;
+}
+nav > ul {
+    display: flex;
+    text-align: center;
+    box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.3);
+    height: var(--hauteur-menu);
+  }
+nav li {
+    list-style-type: none;
+}
+nav > ul > li {
+    background-color: white;
+    position: relative;
+    height: 100%;
+    flex: 1;
+  }
+nav ul li {
+    position: relative;
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    margin-left: auto;
-}
+nav > ul > li > a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
 nav ul li a {
-    color: var(--blanc);
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    color: var(--blanc);
+    padding: 15px 20px;
+    display: block;
     transition: all 0.3s ease;
 }
+li a {
+    text-decoration: none;
+    color: black;
+  }
 
-nav ul li a:hover {
-    background-color: var(--violet-clair);
-    color: var(--blanc);
-    border-radius: 4px;
+
+.sous {
+    position: absolute;
+    top: 100%; /* Le place sous le menu */
+    left: 0;
+    background: var(--blanc);
+    width: 180px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: block; /* Empêche l'affichage inline */
 }
 
-/* Sections */
-section {
-    padding: 4rem 2rem;
+.menu-deroulant > a:after{
+    content: '❯';
+    font-size: 15px;
+    margin-left: 7px;
+    display: block;
+  }
+
+.sous-menu {
+    margin-top: var(--hauteur-menu);
+    width: 100%;
+    text-align: left;
+    background-color: white;
+    border-radius: 2px;
+    overflow: hidden;
+    max-height: 0;
+  }
+  
+.sous-menu > li > a {
+    height: 50px;
+    padding-left: 20px;
+    width: 100%;
+    align-items: center;
+    display: flex;
+  }
+
+nav > ul > li:hover > a{
+    color: #2169EC;
+  }
+  
+.sous-menu > li:hover {
+    background-color: rgba(33, 105, 236, 0.3);
+  }
+  
+.sous-menu > li:hover > a {
+    color: white;
+  }
+
+@keyframes rotationFleche {
+    0% {
+    transform: rotate(0deg);
+    }
+    100%{
+    transform: rotate(90deg);
+    }
+  }
+
+.menu-deroulant:hover > a:after{
+    animation: rotationFleche 0.2s linear forwards;
 }
 
+@keyframes apparitionSousMenu {
+    0% {
+      box-shadow: 0px 3px 3px 1px rgba(0,0,0,0);
+      border-top: 3px solid #2169EC;
+    }
+    30% {
+      box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
+    }
+    100% {
+      max-height: 50em;
+      border-top: 3px solid #2169EC;
+      box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
+    }
+  }
+
+  .menu-deroulant:hover > .sous-menu {
+    animation: apparitionSousMenu 1s forwards;
+  }
+/* Responsive (Mobile) */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li .sous {
+        position: static;
+        display: none;
+        width: 100%;
+        background: var(--noir);
+    }
+
+    nav ul li.active .sous {
+        display: block; /* Activation du menu déroulant sur mobile */
+    }
+}
+
+/* Section principale */
 .hero {
     text-align: center;
     background: linear-gradient(135deg, var(--violet-clair) 0%, var(--violet-fonce) 100%);
@@ -92,16 +208,6 @@ h1, h2 {
     color: var(--noir);
 }
 
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
 .hero h1, .hero p {
     color: var(--blanc);
 }
@@ -115,14 +221,10 @@ h2 {
 }
 
 .service-card {
-    text-decoration: none;
-    color: inherit;
-    display: block;
     background-color: var(--gris-clair);
     padding: 1.5rem;
     border-radius: 8px;
     text-align: center;
-    border: 1px solid #eee;
     transition: all 0.3s ease;
 }
 
@@ -131,201 +233,19 @@ h2 {
     box-shadow: 0 5px 15px rgba(138, 107, 193, 0.2);
 }
 
-.service-card h3 {
-    color: var(--violet-fonce);
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-.read-more {
-    display: inline-block;
-    margin-top: 1rem;
-    color: var(--violet-clair);
-    font-weight: bold;
-    transition: transform 0.3s ease;
-}
-
-.service-card:hover .read-more {
-    transform: translateX(5px);
-}
-
-/* Contact Form */
-form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-input, textarea {
-    padding: 0.8rem;
-    border: 2px solid #eee;
-    border-radius: 4px;
-    transition: border-color 0.3s ease;
-}
-
-input:focus, textarea:focus {
-    border-color: var(--violet-clair);
-    outline: none;
-}
-
-textarea {
-    min-height: 150px;
-}
-
-button {
-    padding: 0.8rem;
-    background-color: var(--violet-clair);
-    color: var(--blanc);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: var(--violet-fonce);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: var(--noir);
-    color: var(--blanc);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav ul {
-        margin-top: 1rem;
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 0.5rem 0;
-    }
-}
-
-/* Ajout d'effets de survol élégants */
-.service-card {
-    position: relative;
-    overflow: hidden;
-}
-
-.service-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: var(--violet-clair);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.service-card:hover::after {
-    transform: scaleX(1);
-}
-
-/* Carousel Styles */
-.carousel {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    margin: 2rem auto;
-}
-
-.carousel-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-slide {
-    flex: 0 0 100%;
-    width: 100%;
-}
-
-.carousel-slide img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    cursor: pointer;
-}
-
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--noir);
-    color: var(--blanc);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-    z-index: 10;
-}
-
-.carousel-button:hover {
-    opacity: 1;
-    background: var(--violet-clair);
-}
-
-.carousel-button.prev {
-    left: 10px;
-}
-
-.carousel-button.next {
-    right: 10px;
-}
-
-.carousel-nav {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 1rem;
-}
-
-.carousel-indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: none;
-    background: var(--blanc);
-    opacity: 0.5;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.carousel-indicator.active {
-    opacity: 1;
-    background: var(--violet-clair);
-    transform: scale(1.2);
-}
-
-/* Styles pour la barre de recherche */
+/* Barre de recherche */
 .search-bar {
     display: flex;
     align-items: center;
     background-color: #f5f5f5;
     border-radius: 25px;
     padding: 5px 15px;
-    margin: 0 20px;
     max-width: 300px;
 }
 
@@ -335,16 +255,12 @@ footer {
     padding: 8px;
     width: 100%;
     outline: none;
-    font-size: 14px;
 }
 
 .search-bar button {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
-    display: flex;
-    align-items: center;
     color: #666;
     transition: color 0.3s ease;
 }
@@ -353,60 +269,10 @@ footer {
     color: #333;
 }
 
-/* Modification du header */
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: transform 0.3s ease-in-out;
-    width: 100%;
-}
-
-header.hidden {
-    transform: translateY(-100%);
-}
-
-/* Ajout d'un effet de fond lors du défilement */
-header.scrolled nav {
-    padding: 10px 30px;
-    background-color: rgba(26, 26, 26, 0.95);
-    backdrop-filter: blur(5px);
-}
-
-/* Mise à jour des styles du carousel */
-.carousel-slide a {
-    display: block;
-    position: relative;
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--noir);
     color: var(--blanc);
-    text-decoration: none;
 }
-
-.carousel-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 20px;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-    color: var(--blanc);
-    text-align: left;
-}
-
-.carousel-caption h3 {
-    margin-bottom: 8px;
-    font-size: 1.5rem;
-    color: var(--blanc);
-} 
-
-/* mise en place logo */
-.petitY {
-    width: 100px; /* Ajuste selon le besoin */
-    height: auto;
-    display: inline-block;
-}
-
-img {
-    position: relative;
-    bottom: 50px;
-}
-
