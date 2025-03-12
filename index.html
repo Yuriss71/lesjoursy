@@ -31,7 +31,6 @@
             </ul>
         </nav>
     </header>
-
     <main>
         <section id="accueil" class="hero">
             <h1>Bienvenue sur Yno'sphere</h1>
@@ -120,11 +119,17 @@
 
         <section id="contact">
             <h2>Contact</h2>
-            <form>
-                <input type="text" placeholder="Nom">
-                <input type="email" placeholder="Email">
-                <textarea placeholder="Message"></textarea>
-                <button type="submit">Envoyer</button>
+            <form action="https://formspree.io/f/xdkaywyr" method="POST">
+                <label>
+                    Your email:
+                    <input type="email" name="email">
+                </label>
+                <label>
+                    Your message:
+                    <textarea name="message"></textarea>
+                </label>
+                <!-- your other form fields go here -->
+                <button type="submit">Send</button>
             </form>
         </section>
     </main>
