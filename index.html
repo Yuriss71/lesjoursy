@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <script src="js/carousel.js" defer></script>
     <script src="js/header.js" defer></script>
+    <script src="compteur.js"></script>
     <meta name="netlify" content="true">
 </head>
 <body>
@@ -23,6 +24,7 @@
                     </svg>
                 </button>
             </div>
+            <img src="/image/ypetit_white.png" alt="Logo" class="petitY">
             <ul>
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#apropos">À propos</a></li>
@@ -47,6 +49,7 @@
                                 <img src="https://images.radio-canada.ca/q_auto,w_1200/v1/ici-info/16x9/baleine-navire-generique-pollution-sonore.png" alt="Image 1">
                                 <div class="carousel-caption">
                                     <h3>Des technologies développées en Atlantique pour réduire la pollution sonore des océans</h3>
+                                    <p>Publié il y a : <span class="timeElapsed" data-publication="2025-03-12T08:00:00"></span></p>
                                     <p>Cliquez pour en savoir plus</p>
                                 </div>
                             </a>
@@ -56,6 +59,8 @@
                                 <img src="/image/Proba-3_satellites_pillars blog2.jpg" alt="Image 2">
                                 <div class="carousel-caption">
                                     <h3>Des technologies développées en Atlantique pour réduire la pollution sonore des océans</h3>
+                                    <p>Publié il y a : <span class="timeElapsed" data-publication="2025-03-11T11:00:00"></span></p>
+
                                     <p>Cliquez pour en savoir plus</p>
                                 </div>
                             </a>
@@ -65,6 +70,7 @@
                                 <img src="images/slide3.jpg" alt="Image 3">
                                 <div class="carousel-caption">
                                     <h3>Article Principal 3</h3>
+                                    <p>Publié il y a : <span class="timeElapsed" data-publication="2025-03-10T12:00:00"></span></p>
                                     <p>Cliquez pour en savoir plus</p>
                                 </div>
                             </a>
@@ -106,7 +112,6 @@
                 <a href="articles/article1.html" class="service-card">
                     <h3>Article 1</h3>
                     <p>Description de l'article 1</p>
-                    <p>Publié il y a : <span id="timeElapsed"></span></p>
                     <span class="read-more">Lire la suite →</span>
                 </a>
                 <a href="articles/article2.html" class="service-card">
