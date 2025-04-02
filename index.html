@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <script src="js/carousel.js" defer></script>
     <script src="js/header.js" defer></script>
+    <script src="js/search.js" defer></script>
     <meta name="netlify" content="true">
 </head>
 <body>
@@ -15,13 +16,15 @@
         <nav>
             <div class="logo">Yno'sphere</div>
             <div class="search-bar">
-                <input type="search" placeholder="Rechercher...">
-                <button type="submit">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                </button>
+                <form id="search-form">
+                    <input type="search" id="search-input" placeholder="Rechercher..." autocomplete="off">
+                    <button type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </form>
             </div>
             <ul>
                 <li><a href="#accueil">Accueil</a></li>

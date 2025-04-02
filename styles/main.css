@@ -396,3 +396,54 @@ header.scrolled nav {
     font-size: 1.5rem;
     color: var(--blanc);
 } 
+/* Styles améliorés pour la barre de recherche */
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 5px 15px;
+    margin: 0 20px;
+    max-width: 300px;
+    transition: all 0.3s ease;
+}
+
+.search-bar:focus-within {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 2px var(--violet-clair);
+}
+
+.search-bar form {
+    display: flex;
+    width: 100%;
+}
+
+.search-bar input {
+    border: none;
+    background: none;
+    padding: 8px;
+    width: 100%;
+    outline: none;
+    font-size: 14px;
+    color: var(--blanc);
+}
+
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    color: var(--blanc);
+    transition: color 0.3s ease;
+}
+
+.search-bar button:hover {
+    color: var(--violet-clair);
+}
