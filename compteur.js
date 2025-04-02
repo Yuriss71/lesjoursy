@@ -1,24 +1,27 @@
-// Fonction pour mettre à jour le temps écoulé pour chaque article
 function updateElapsedTime() {
-    // Sélectionne tous les éléments qui ont l'attribut "data-publication"
     document.querySelectorAll(".timeElapsed").forEach(element => {
-        // Récupère la date de publication depuis l'attribut "data-publication"
         const publicationDate = new Date(element.getAttribute("data-publication"));
         const now = new Date();
-        const diffMs = now - publicationDate; // Différence en millisecondes
+        const diffMs = now - publicationDate;
 
-        // Calcul du temps écoulé en heures, minutes et secondes
-        const hours = Math.floor(diffMs / (1000 * 60 * 60));
-        const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+        const seconds = Math.floor(diffMs / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+        const months = Math.floor(days / 30);
 
-        // Mise à jour du texte dans l'élément
-        element.textContent = `${hours}h ${minutes}m ${seconds}s`;
+        let timeString = "";
+        if (days >= 30) {
+            timeString = `${months} mois`;
+        } else if (hours >= 24) {
+            timeString = `${days} jours`;
+        } else {
+            timeString = `${hours}h ${minutes % 60}m ${seconds % 60}s`;
+        }
+
+        element.textContent = timeString;
     });
 }
 
-// Met à jour le temps toutes les secondes
 setInterval(updateElapsedTime, 1000);
-
-// Met à jour immédiatement au chargement
 updateElapsedTime();
