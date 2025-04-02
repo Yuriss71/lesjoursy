@@ -149,14 +149,14 @@ nav > ul > li:hover > a{
 @keyframes apparitionSousMenu {
     0% {
       box-shadow: 0px 3px 3px 1px rgba(0,0,0,0);
-      border-top: 3px solid #2169EC;
+      border-top: 3px solid #5D4777;
     }
     30% {
       box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
     }
     100% {
       max-height: 50em;
-      border-top: 3px solid #2169EC;
+      border-top: 3px solid #5D4777;
       box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
     }
   }

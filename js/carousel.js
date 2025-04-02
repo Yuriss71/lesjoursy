@@ -69,4 +69,4 @@ class Carousel {
 // Initialisation du carrousel
 document.addEventListener('DOMContentLoaded', () => {
     new Carousel();
-}); 
+});
