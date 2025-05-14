@@ -21,8 +21,8 @@ body, p, span, a, li {
 }
 /* Mise à jour des couleurs */
 :root {
-    --violet-clair: #8A6BC1;
-    --violet-fonce: #5D4777;
+    --violet-clair: #72224d;
+    --violet-fonce: #72224d;
     --noir: #1A1A1A;
     --blanc: #FFFFFF;
     --gris-clair: #F5F5F7;
@@ -47,7 +47,7 @@ nav {
 }
 
 .logo {
-    color: var(--violet-clair);
+    color: white;
     font-size: 1.5rem;
     font-weight: bold;
 }
